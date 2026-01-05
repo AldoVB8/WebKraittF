@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>{{ recurso.title }} - Blog IA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d72b8", 
+                        secondary: "#102a56", 
+                        "background-light": "#ffffff",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 min-h-screen flex flex-col items-center py-12 relative">
+
+    <a href="{% url 'blog_index-aldo' %}" class="fixed top-8 left-8 z-50 flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-sm text-gray-700 hover:text-primary transition-colors border border-gray-100">
+        <span class="material-icons">arrow_back</span>
+        <span class="font-medium">Regresar</span>
+    </a>
+
+    <div class="max-w-5xl w-full px-4">
+        
+        <!-- HEADER COMUN -->
+        <div class="text-center mb-10">
+            <span class="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">{{ recurso.get_type_display }}</span>
+            <h1 class="text-3xl md:text-5xl font-bold text-secondary mb-4">{{ recurso.title }}</h1>
+             <p class="text-lg text-gray-600 max-w-2xl mx-auto">{{ recurso.description }}</p>
+        </div>
+
+        <!-- CONDITIONAL CONTENT -->
+        <div class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+            
+            <!-- CASO 1: CAPSULA (VIDEO) -->
+            {% if recurso.type == 'CAPSULA' %}
+                <div class="aspect-video w-full bg-black relative">
+                    <iframe 
+                        class="absolute inset-0 w-full h-full"
+                        src="{{ recurso.get_embed_url }}" 
+                        title="{{ recurso.title }}"
+                        frameborder="0" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+            <!-- CASO 2: NOTICIA (TEXTO + IMAGEN) -->
+            {% elif recurso.type == 'NOTICIA' %}
+                {% if recurso.image %}
+                    <div class="h-64 md:h-96 w-full relative">
+                         <img src="{{ recurso.image.url }}" alt="{{ recurso.title }}" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                {% endif %}
+                <div class="p-8 md:p-12 prose prose-lg max-w-none text-gray-700">
+                    {{ recurso.content|linebreaks }}
+                </div>
+
+            <!-- CASO 3: INFOGRAFIA (IMAGEN COMPLETA) -->
+            {% elif recurso.type == 'INFOGRAFIA' %}
+                <div class="p-4 bg-gray-100 flex justify-center">
+                    {% if recurso.image %}
+                        <img src="{{ recurso.image.url }}" alt="{{ recurso.title }}" class="w-full h-auto rounded-lg shadow-sm">
+                    {% else %}
+                        <p class="text-gray-400 p-8">Imagen no disponible</p>
+                    {% endif %}
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

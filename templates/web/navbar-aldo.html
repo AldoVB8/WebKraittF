@@ -1,0 +1,126 @@
+{% load static %}
+<nav class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur shadow-sm border-b border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+            
+            <div class="flex items-center gap-3">
+                <div class="relative w-10 h-10 flex-shrink-0">
+                    <img src="{% static 'img/IconoKraitt.png' %}" alt="Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg leading-tight tracking-tight text-secondary dark:text-white">KRAITT TECNOLOGIA</span>
+                    <span class="font-medium text-sm text-gray-500 dark:text-gray-400">TABU</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex space-x-8 items-center">
+                <a class="text-primary font-semibold hover:text-primary transition-colors" href="{% url 'home-aldo' %}">INICIO</a>
+                <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="{% url 'pages-aldo' %}">PRODUCTOS</a>
+                <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="{% url 'services-aldo' %}">SERVICIOS</a>
+                <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="{% url 'nosotros-aldo' %}">NOSOTROS</a>
+                <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium uppercase" href="{% url 'contact-aldo' %}">CONTÁCTENOS</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a class="bg-white hover:bg-gray-100 text-primary border border-primary px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm" href="{% url 'blog_general_index' %}">
+                    BLOG
+                </a>
+                <a class="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm" href="{% url 'blog_index-aldo' %}">
+                    ACERCA DE LA IA
+                </a>
+                <button class="ml-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400" onclick="document.documentElement.classList.toggle('dark')">
+                    <span class="material-icons text-xl">brightness_4</span>
+                </button>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                    <span class="material-icons text-3xl">menu</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 animate-fade-in-down">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a class="block px-3 py-4 text-base font-semibold text-primary border-l-4 border-primary bg-primary/5" href="{% url 'home-aldo' %}">
+                INICIO
+            </a>
+            <a class="block px-3 py-4 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="{% url 'pages-aldo' %}">
+                PRODUCTOS
+            </a>
+            <a class="block px-3 py-4 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+                SERVICIOS
+            </a>
+            <a class="block px-3 py-4 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="{% url 'nosotros-aldo' %}">
+                NOSOTROS
+            </a>
+            <a class="block px-3 py-4 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="{% url 'blog_index-aldo' %}">
+                BLOG
+            </a>
+            <a class="block px-3 py-4 text-base font-semibold text-primary hover:bg-primary/5 transition-colors" href="{% url 'contact-aldo' %}">
+                CONTÁCTENOS
+            </a>
+            <div class="pt-4 px-3 flex flex-col gap-3">
+                <a class="block text-center bg-white hover:bg-gray-100 text-primary border border-primary px-6 py-3 rounded-xl font-semibold transition-all shadow-md" href="{% url 'blog_general_index' %}">
+                    BLOG
+                </a>
+                <a class="block text-center bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md" href="{% url 'blog_index-aldo' %}">
+                    ACERCA DE LA IA
+                </a>
+            </div>
+            <div class="pt-4 flex justify-center">
+                <button class="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center gap-2" onclick="document.documentElement.classList.toggle('dark')">
+                    <span class="material-icons">brightness_4</span>
+                    <span class="text-sm font-medium">Cambiar Tema</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('.material-icons');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenu.classList.contains('hidden');
+            
+            if (isExpanded) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.textContent = 'close';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.textContent = 'menu';
+            }
+        });
+
+        // Close menu when resizing beyond mobile view
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.textContent = 'menu';
+            }
+        });
+    });
+</script>
+
+<style>
+    @keyframes fade-in-down {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-down {
+        animation: fade-in-down 0.3s ease-out;
+    }
+</style>

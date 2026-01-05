@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nosotros - Kraitt Tecnología</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d72b8", 
+                        secondary: "#102a56", 
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#f8fafc",
+                        "surface-dark": "#1e293b",
+                        "text-light": "#1e293b",
+                        "text-dark": "#e2e8f0",
+                        "accent-blue": "#3b82f6"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                },
+            },
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-pattern {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .card-blur {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-text-light transition-colors duration-300 min-h-screen flex flex-col">
+    {% include 'web/navbar-aldo.html' %}
+
+    <main class="flex-grow">
+        <!-- Header Section -->
+        <header class="relative pt-20 pb-16 overflow-hidden hero-pattern">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-secondary mb-8 tracking-tight">
+                    Nuestra Historia
+                </h1>
+                <div class="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-100 shadow-xl max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed italic">
+                        "Desde 2010, ofrecemos a nuestros clientes el concepto de <span class="text-primary font-semibold">"llave en mano"</span>, Kraitt es la unión inteligente y analítica de dos profesiones (informática y servicios contables) creada tras observar que todo proceso administrativo contable, requiere y se simplifica, con herramientas informáticas especializadas."
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mt-6">
+                        Todo lo que administrativamente la micro y pequeña empresa pueda necesitar, con un mismo proveedor y con un acento a la calidad humana del contacto con los clientes, a los que nos gusta llamar asociados.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Cards Section -->
+        <section class="py-16 bg-surface-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="space-y-12">
+                    
+                    <!-- Card 1: Founder -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 hover:shadow-primary/5 transition-all duration-500 group">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0">
+                            <div class="relative overflow-hidden aspect-square md:aspect-auto h-full min-h-[400px]">
+                                <img src="{% static 'img/nosotros/pilar.png' %}" alt="C.P. Pilar Concepción Pérez Rodríguez" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent md:hidden"></div>
+                            </div>
+                            <div class="p-8 md:p-12 lg:col-span-2 flex flex-col justify-center">
+                                <span class="text-primary font-bold tracking-widest text-sm uppercase mb-3">CONOCE A NUESTRA LÍDER</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-2">C.P. Pilar Concepción Pérez Rodríguez</h2>
+                                <h3 class="text-xl text-primary font-semibold mb-6">DIRECTORA Y FUNDADORA</h3>
+                                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mb-8">
+                                    Con Maestría en Alta Dirección e Inteligencia Estratégica, dicta las herramientas necesarias para el desarrollo de la profesión y el control del despacho contable.
+                                </p>
+                                <div class="border-l-4 border-primary pl-6 py-2 bg-blue-50/50 rounded-r-xl">
+                                    <p class="text-xl font-medium text-secondary italic">
+                                        "Nuestro principal valor es entender que por encima de todo somos personas."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Team -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 hover:shadow-primary/5 transition-all duration-500 group">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0">
+                            <div class="p-8 md:p-12 lg:col-span-2 flex flex-col justify-center order-2 md:order-1">
+                                <span class="text-primary font-bold tracking-widest text-sm uppercase mb-3">EL CORAZÓN DE KRAITT</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Un Equipo Multidisciplinario</h2>
+                                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                                    Nuestros analistas y programadores construyen las herramientas exactas que el sector necesita. Nos juntamos para ofrecer lo mejor de nuestra capacidad con la mayor calidad humana.
+                                </p>
+                                <div class="mt-8 flex gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                                        <span class="material-icons">engineering</span>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
+                                        <span class="material-icons">code</span>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-600">
+                                        <span class="material-icons">groups</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative overflow-hidden aspect-video md:aspect-auto h-full min-h-[400px] order-1 md:order-2">
+                                <img src="{% static 'img/nosotros/equipo.jpg' %}" alt="Nuestro Equipo Kraitt" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Alliance -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 hover:shadow-primary/5 transition-all duration-500 group">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0">
+                            <div class="relative overflow-hidden flex items-center justify-center bg-gray-50 min-h-[300px] p-12">
+                                <img src="{% static 'img/nosotros/amcp.jpg' %}" alt="AMCP Logo" class="w-full max-w-[250px] object-contain group-hover:scale-110 transition-transform duration-700 filter">
+                            </div>
+                            <div class="p-8 md:p-12 lg:col-span-2 flex flex-col justify-center">
+                                <span class="text-primary font-bold tracking-widest text-sm uppercase mb-3">FORTALEZA INSTITUCIONAL</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Alianzas Estratégicas</h2>
+                                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mb-6">
+                                    Con la visión de robustecer nuestra propuesta, nos asociamos en 2014 con <span class="font-bold text-secondary">AMCP Consultores Empresariales S.C.</span>
+                                </p>
+                                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                                    Un grupo de profesionales con más de 20 años en el sector contable y financiero, aportando experiencia y solidez a cada uno de nuestros servicios.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'web/footer-aldo.html' %}
+
+</body>
+</html>

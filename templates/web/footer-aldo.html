@@ -1,0 +1,59 @@
+{% load static %}
+<footer class="bg-background-light dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="relative w-10 h-10 flex-shrink-0">
+                        <img src="{% static 'img/IconoKraitt.png' %}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg leading-tight tracking-tight text-secondary dark:text-white">KRAITT TECNOLOGIA</span>
+                        <span class="font-medium text-sm text-gray-500 dark:text-gray-400">TABU</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                    Soluciones tecnológicas integrales para el crecimiento de tu empresa.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Productos</h4>
+                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                    <li><a class="hover:text-primary transition-colors" href="#">Gestión Fiscal</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Contabilidad</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Nómina</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Compañía</h4>
+                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'nosotros-aldo' %}">Nosotros</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="{% url 'blog_general_index' %}">Blog</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Carreras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                    <li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Términos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm text-gray-400">© 2025 Kraitt Tecnología Tabu. Todos los derechos reservados.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <div class="w-5 h-5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                <div class="w-5 h-5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                <div class="w-5 h-5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mantiene el script original para detección inicial si el equipo usa el tema oscuro o claro
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+    }
+</script>

@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Servicios - Kraitt Tecnología</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d72b8", 
+                        secondary: "#102a56", 
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Animation Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .slide-in-left {
+            transform: translateX(-100px);
+        }
+        
+        .slide-in-right {
+            transform: translateX(100px);
+        }
+        
+        .reveal-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(#e2e8f0 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+        }
+
+        /* Glassmorphism Card */
+        .service-card-glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-background-light text-text-light flex flex-col min-h-screen transition-colors duration-300">
+
+    {% include 'web/navbar-aldo.html' %}
+
+    <main class="flex-grow hero-pattern">
+        <!-- Hero Section -->
+        <section class="py-20 lg:py-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-[#111827] mb-6 tracking-tight animate-fade-in-up">
+                    Nuestros <span class="text-primary">Servicios</span>
+                </h1>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-100">
+                    Soluciones integrales diseñadas para optimizar y potenciar el crecimiento de tu empresa con tecnología de punta.
+                </p>
+            </div>
+            
+            <!-- Background Decoration -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-3xl -z-10"></div>
+        </section>
+
+        <!-- Services Zig-Zag Grid -->
+        <section class="pb-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+                
+                <!-- Service 1: Asesoría administrativa (Left Text, Right Visual) -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center reveal-on-scroll slide-in-left">
+                    <div class="order-2 lg:order-1 space-y-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-primary">
+                            <span class="material-icons text-3xl">trending_up</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-secondary">Asesoría Administrativa</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Brindamos apoyo en la toma oportuna de decisiones y el adecuado manejo de su empresa. Realizamos análisis profundos de su estructura administrativa, optimizando la distribución de funciones para lograr un desarrollo eficiente y eficaz en cada puesto laboral.
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 flex justify-center">
+                         <img src="{% static 'img/servicios/asesoriaAdministrativa.png' %}" alt="Asesoría Administrativa" class="w-full max-w-md hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Service 2: Facturación (Right Text, Left Visual) -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center reveal-on-scroll slide-in-right">
+                    <div class="order-2 space-y-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-600">
+                            <span class="material-icons text-3xl">receipt_long</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-secondary">Facturación Electrónica</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Emita y reciba comprobantes fiscales digitales de forma rápida, segura y eficiente. Cumpla con todas las obligaciones tributarias vigentes (CFDI 4.0), optimice sus procesos administrativos y reduzca sus costos operativos significativamente.
+                        </p>
+                    </div>
+                    <div class="order-1 flex justify-center">
+                        <img src="{% static 'img/servicios/facturacion.png' %}" alt="Facturación Electrónica" class="w-full max-w-md hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Service 3: Nómina y RH (Left Text, Right Visual) -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center reveal-on-scroll slide-in-left">
+                    <div class="order-2 lg:order-1 space-y-6">
+                        <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 text-purple-600">
+                            <span class="material-icons text-3xl">groups</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-secondary">Nómina y RH</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Gestione su empresa de forma eficiente y segura. Ofrecemos soluciones integrales y personalizadas para la gestión de recursos humanos y cálculo de nómina, adaptándonos a sus necesidades con el respaldo de profesionales experimentados.
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 flex justify-center">
+                        <img src="{% static 'img/servicios/nominaRH.png' %}" alt="Nómina y RH" class="w-full max-w-md hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Service 4: Soporte Remoto (Right Text, Left Visual) -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center reveal-on-scroll slide-in-right">
+                    <div class="order-2 space-y-6">
+                        <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6 text-red-600">
+                            <span class="material-icons text-3xl">headset_mic</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-secondary">Soporte Vía Remota</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                            Soporte técnico especializado para sistemas Kraitt o SFácil a través de RustDesk. Resolución rápida de incidencias sin necesidad de visitas presenciales.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-50 text-red-700 rounded-lg font-medium text-sm">
+                            <span class="material-icons text-base">schedule</span>
+                            Horario: Lunes a Viernes 8:00 - 16:00 hrs (Centro)
+                        </div>
+                    </div>
+                    <div class="order-1 flex justify-center">
+                        <img src="{% static 'img/servicios/soporte.png' %}" alt="Soporte Remoto" class="w-full max-w-md hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Service 5: Mantenimiento (Left Text, Right Visual) -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center reveal-on-scroll slide-in-left">
+                    <div class="order-2 lg:order-1 space-y-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6 text-yellow-700">
+                            <span class="material-icons text-3xl">build</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-secondary">Mantenimiento de Equipos</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                            Servicio profesional de mantenimiento preventivo y correctivo para equipos de cómputo, disponible en modalidad presencial y remota para garantizar la continuidad de su operación.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 text-yellow-700 rounded-lg font-bold text-lg">
+                            <span class="material-icons text-base">payments</span>
+                            Costo desde: $200.00 + IVA
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 flex justify-center">
+                        <img src="{% static 'img/servicios/mantenimiento.png' %}" alt="Mantenimiento de Equipos" class="w-full max-w-md hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Service 6: Sellos Digitales (Right Text, Left Visual) -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center reveal-on-scroll slide-in-right">
+                    <div class="order-2 space-y-6">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 text-indigo-600">
+                            <span class="material-icons text-3xl">verified</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-secondary">Colocación de Sellos Digitales</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Gestión e instalación de Certificados de Sello Digital (CSD). Garantizamos la correcta vinculación entre su identidad y su clave pública ante el SAT para la emisión de facturas.
+                        </p>
+                    </div>
+                    <div class="order-1 flex justify-center">
+                        <img src="{% static 'img/servicios/sellos.png' %}" alt="Colocación de Sellos Digitales" class="w-full max-w-md hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    {% include 'web/footer-aldo.html' %}
+
+    <script>
+        // Intersection Observer for Slide-In Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target); // Trigger once
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

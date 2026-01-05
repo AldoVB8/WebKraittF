@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Inteligencia Artificial - Kraitt</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d72b8", 
+                        secondary: "#102a56", 
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-gray-50 transition-colors duration-300 min-h-screen flex flex-col">
+
+    {% include 'web/navbar-aldo.html' %}
+
+    <header class="bg-secondary text-white py-20 text-center px-4 relative overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Inteligencia Artificial</h1>
+            <p class="text-lg text-blue-100 max-w-2xl mx-auto">
+                Explora el futuro de la tecnología con nuestra sección educativa sobre IA.
+            </p>
+        </div>
+    </header>
+
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full" x-data="{ activeTab: 'capsulas' }">
+        
+        <!-- Segmented Control -->
+        <div class="flex justify-center mb-12">
+            <div class="bg-gray-100 p-1.5 rounded-xl inline-flex shadow-sm">
+                <button 
+                    @click="activeTab = 'capsulas'"
+                    :class="activeTab === 'capsulas' ? 'bg-white text-secondary shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+                    class="px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none">
+                    Cápsulas IA
+                </button>
+                <button 
+                    @click="activeTab = 'noticias'"
+                    :class="activeTab === 'noticias' ? 'bg-white text-secondary shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+                    class="px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none">
+                    Noticias de IA
+                </button>
+                <button 
+                    @click="activeTab = 'infografias'"
+                    :class="activeTab === 'infografias' ? 'bg-white text-secondary shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+                    class="px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none ">
+                    Infografías
+                </button>
+            </div>
+        </div>
+
+        <!-- Capsulas -->
+        <div x-show="activeTab === 'capsulas'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for item in capsulas %}
+            <a href="{% url 'resource_detail-aldo' item.pk %}" class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden block group">
+                <div class="relative h-48 bg-purple-600 flex items-center justify-center p-6 text-white text-center">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                    {% endif %}
+                    <h3 class="text-3xl font-bold relative z-10 drop-shadow-md">{{ item.title|truncatechars:20 }}</h3>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg text-secondary mb-2">{{ item.title }}</h4>
+                    <p class="text-sm text-gray-600">{{ item.description|truncatechars:100 }}</p>
+                </div>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center py-12 text-gray-500">No hay cápsulas disponibles.</div>
+            {% endfor %}
+        </div>
+
+        <!-- Noticias -->
+        <div x-show="activeTab === 'noticias'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="display: none;">
+            {% for item in noticias %}
+            <a href="{% url 'resource_detail-aldo' item.pk %}" class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden block group">
+                <div class="relative h-48 bg-orange-600 flex items-center justify-center p-6 text-white text-center">
+                     {% if item.image %}
+                        <img src="{{ item.image.url }}" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                    {% endif %}
+                    <h3 class="text-3xl font-bold relative z-10 drop-shadow-md">{{ item.title|truncatechars:20 }}</h3>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg text-secondary mb-2">{{ item.title }}</h4>
+                    <p class="text-sm text-gray-600">{{ item.description|truncatechars:100 }}</p>
+                </div>
+            </a>
+             {% empty %}
+            <div class="col-span-full text-center py-12 text-gray-500">No hay noticias disponibles.</div>
+            {% endfor %}
+        </div>
+
+        <!-- Infografias -->
+        <div x-show="activeTab === 'infografias'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="display: none;">
+            {% for item in infografias %}
+            <a href="{% url 'resource_detail-aldo' item.pk %}" class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden block group">
+                 <div class="relative h-48 bg-blue-600 flex items-center justify-center p-6 text-white text-center">
+                     {% if item.image %}
+                        <img src="{{ item.image.url }}" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                    {% endif %}
+                    <h3 class="text-3xl font-bold relative z-10 drop-shadow-md">{{ item.title|truncatechars:20 }}</h3>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg text-secondary mb-2">{{ item.title }}</h4>
+                    <p class="text-sm text-gray-600">{{ item.description|truncatechars:100 }}</p>
+                </div>
+            </a>
+             {% empty %}
+            <div class="col-span-full text-center py-12 text-gray-500">No hay infografías disponibles.</div>
+            {% endfor %}
+        </div>
+
+    </main>
+
+    {% include 'web/footer-aldo.html' %}
+
+</body>
+</html>

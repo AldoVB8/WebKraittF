@@ -1,0 +1,137 @@
+/* 1. Contenedor Principal */
+.main-footer {
+    background-color: #333;
+    /* Fondo gris oscuro */
+    color: #fff;
+    /* Color de texto base blanco */
+    padding: 40px 20px 20px;
+    /* Padding superior, a los lados y abajo */
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    /* Ancho máximo similar al del contenido principal */
+    margin: 0 auto;
+    /* Centrar el contenido */
+}
+
+/* 2. Estilos de los enlaces */
+.main-footer a {
+    color: #ccc;
+    /* Gris claro para los enlaces */
+    text-decoration: none;
+    font-size: 13px;
+    /* Tamaño de fuente más pequeño */
+    line-height: 1.8;
+    /* Espaciado entre líneas */
+}
+
+.main-footer a:hover {
+    color: #fff;
+    /* Blanco al pasar el ratón */
+}
+
+/* 3. Encabezados de Columna */
+.footer-column h4 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    /* Títulos en blanco puro */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    /* Opcional: para que se vean como en la imagen */
+}
+
+/* Para que los teléfonos se vean como texto simple */
+.phone-number {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+/* 4. Estilos de la Disposición en Columnas (Flexbox/Grid) */
+.footer-links-grid {
+    display: flex;
+    /* Usamos Flexbox para las columnas */
+    justify-content: space-between;
+    /* Distribuye las columnas uniformemente */
+    gap: 20px;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+    /* Permite que las columnas se muevan en pantallas pequeñas */
+}
+
+.footer-column {
+    /* Hace que las 5 columnas tengan aproximadamente el mismo ancho */
+    flex: 1 1 180px;
+}
+
+/* Reset de listas */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 5. Separador y Bloque Inferior */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #555;
+    /* Línea gris oscuro */
+    margin: 20px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    /* Distribuye elementos a izquierda y derecha */
+    align-items: center;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+/* Links Legales */
+.footer-legal {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-legal span {
+    color: #ccc;
+}
+
+/* Redes Sociales */
+.footer-social a {
+    font-size: 20px;
+    /* Iconos más grandes */
+    margin-left: 15px;
+}
+
+/* Media Query para hacerlo Responsivo */
+@media (max-width: 768px) {
+    .footer-links-grid {
+        /* En pantallas más pequeñas, se apilan de 2 en 2 */
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .footer-column {
+        flex: 1 1 45%;
+        /* Cada columna ocupa casi la mitad del ancho */
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        /* Apila el bloque legal y las redes sociales */
+        align-items: flex-start;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+}

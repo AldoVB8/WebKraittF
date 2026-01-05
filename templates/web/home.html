@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kraitt</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <script src="{% static 'js/tree.js' %}" defer></script>
+</head>
+
+{% include 'web/navbar.html' %}
+
+<body>
+
+    <h1>Página en Django</h1>
+    <div id="app"></div>
+
+</body>
+
+{% include 'web/footer.html' %}
+
+</html>

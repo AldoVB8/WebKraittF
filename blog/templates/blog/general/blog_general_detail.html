@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>{{ post.title }} - Blog Kraitt</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d72b8", 
+                        secondary: "#102a56", 
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 transition-colors duration-300 min-h-screen flex flex-col font-body">
+    
+    {% include 'web/navbar-aldo.html' %}
+    
+    <main class="flex-grow py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            
+             <!-- Back Link -->
+            <div class="mb-8">
+                <a href="{% url 'blog_general_index' %}" class="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                    <span class="material-icons mr-2">arrow_back</span>
+                    Volver al Blog
+                </a>
+            </div>
+
+            <article class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden p-8 md:p-12">
+                <header class="text-center mb-10">
+                    <span class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-3 block">
+                        {{ post.get_category_display }}
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-bold text-secondary mb-6 leading-tight">
+                        {{ post.title }}
+                    </h1>
+                    <div class="flex items-center justify-center gap-4 text-sm text-gray-500">
+                        <span class="flex items-center">
+                            <span class="material-icons text-base mr-1">calendar_today</span>
+                            {{ post.created_at|date:"d de F, Y" }}
+                        </span>
+                        <span class="flex items-center">
+                            <span class="material-icons text-base mr-1">schedule</span>
+                            {{ post.reading_time }} min lectura
+                        </span>
+                    </div>
+                </header>
+    
+                {% if post.image %}
+                <div class="rounded-2xl overflow-hidden mb-12 shadow-lg">
+                     <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-auto object-cover max-h-[600px]">
+                </div>
+                {% endif %}
+    
+                <div class="prose prose-lg prose-blue max-w-none text-gray-700">
+                    {{ post.content|linebreaks }}
+                </div>
+                
+                <!-- Share/Tags Section could go here -->
+            </article>
+
+        </div>
+    </main>
+    
+    {% include 'web/footer-aldo.html' %}
+
+</body>
+</html>

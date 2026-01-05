@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Página de Productos - Kraitt Tecnología</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+<script>
+    tailwind.config = {
+        darkMode: "class", // La configuración se mantiene, pero ya no usamos las variantes en el HTML
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#1d72e8",
+                    secondary: "#0f172a",
+                    "background-light": "#f8fafc",
+                    "background-dark": "#0f172a",
+                    "card-light": "#ffffff",
+                    "card-dark": "#1e293b",
+                    "text-light": "#1e293b",
+                    "text-dark": "#f1f5f9",
+                    "text-muted-light": "#64748b",
+                    "text-muted-dark": "#94a3b8",
+                },
+                fontFamily: {
+                    display: ["Inter", "sans-serif"],
+                    body: ["Inter", "sans-serif"],
+                },
+                borderRadius: {
+                    DEFAULT: "0.5rem",
+                    'xl': '1rem',
+                    '2xl': '1.5rem',
+                },
+                boxShadow: {
+                    'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                    'hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                }
+            },
+        },
+    };
+</script>
+</head>
+{% include 'web/navbar-aldo.html' %}
+<body class="bg-background-light text-text-light font-body min-h-screen flex flex-col">
+
+<main class="flex-grow">
+    <div class="relative overflow-hidden bg-background-light py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+                Nuestras Soluciones
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg text-text-muted-light leading-relaxed">
+                Herramientas diseñadas para optimizar cada aspecto de tu flujo de trabajo fiscal y administrativo. Potencia tu empresa con tecnología de vanguardia.
+            </p>
+        </div>
+        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10 pointer-events-none opacity-40">
+            <div class="absolute top-[10%] left-[20%] w-72 h-72 bg-blue-200 rounded-full blur-3xl mix-blend-multiply filter"></div>
+            <div class="absolute top-[20%] right-[20%] w-72 h-72 bg-purple-200 rounded-full blur-3xl mix-blend-multiply filter"></div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Diot 2025 -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">description</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Diot 2025</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    La solución definitiva para la Declaración Informativa de Operaciones con Terceros. Automatiza la carga y valida RFCs.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'diot-2025' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 2. ADCOFI -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">calculate</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">ADCOFI</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Administrador de Comprobantes Fiscales. Organiza, valida y gestiona todos tus CFDI de manera eficiente.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'adcofi' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 3. Validador Móvil -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">smartphone</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Validador Móvil</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Lleva el control de tus facturas en tu bolsillo. Escanea, valida y organiza tus CFDIs desde cualquier móvil.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'validador-movil' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 4. Visor Trifásico -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">shield</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Visor Trifásico</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Protege tu empresa contra facturas falsas. Visualiza, valida y audita tus XMLs en tres niveles de seguridad.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'visor-trifasico' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 5. ERIC -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">print</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">ERIC</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Escritor de Representación Impresa CFDI. Visualiza, genera y valida tus facturas con formatos personalizados.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'eric' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 6. REX -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">smart_toy</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">REX (Robot Extractor)</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Descarga masiva de XML, organiza tu tiempo, convierte a Excel y concilia cancelaciones automáticamente.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'rex' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 7. SFacil Factura -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">receipt</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">SFacil Factura</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    La forma más fácil y rápida de facturar. Emite CFDI 4.0, complementos de pago y notas de crédito.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'sfacil-factura' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 8. SFacil Conta-Fiscal -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">calculate</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">SFacil Conta-Fiscal</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Genera tus pólizas a partir de tus XML y cumple al 100% con la Contabilidad Electrónica del SAT.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'sfacil-conta-fiscal' %}">
+                    Más Información
+                </a>
+            </div>
+
+            <!-- 9. SFacil Nóminas -->
+            <div class="group bg-card-light rounded-2xl p-8 shadow-soft hover:shadow-hover border border-gray-100 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+                <div class="mb-6">
+                    <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-icons-outlined text-2xl">groups</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">SFacil Nóminas</h3>
+                <p class="text-text-muted-light mb-8 flex-grow leading-relaxed text-sm">
+                    Calcula y timbra tu nómina de forma sencilla. Cumple con todas las obligaciones laborales y fiscales.
+                </p>
+                <a class="inline-flex justify-center items-center w-full px-4 py-3 bg-primary hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-md shadow-blue-500/20" href="{% url 'product_detail' 'sfacil-nominas' %}">
+                    Más Información
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="bg-blue-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">¿Listo para transformar tu negocio?</h2>
+            <p class="text-text-muted-light max-w-2xl mx-auto">Únete a cientos de empresas que ya optimizaron sus procesos con Kraitt Tecnología.</p>
+        </div>
+    </div>
+</main>
+
+</body>
+{% include 'web/footer-aldo.html' %}
+</html>
